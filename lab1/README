@@ -1,0 +1,20 @@
+
+
+Mininet
+    > dump: Show the info of all nodes
+    > <node> ifconfig: Show IF
+
+Shell script
+    $ startServer.sh: Start onos server
+    $ simpleTopology.sh: Build linear network topology
+    $ buildTopology.sh <pythonFile> <topologyName>: Build custom network topology
+
+Linux
+    $ netstat -nlpt
+        -n, --numeric
+            Show numerical addresses instead of trying to determine symbolic host, port or user names.
+        -l, --listening
+            Show only listening sockets.  (These are omitted by default.)
+        -p, --program
+            Show the PID and name of the program to which each socket belongs.
+        

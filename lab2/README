@@ -1,0 +1,16 @@
+
+JSON file of flow rules
+    * 40000 <= Priority <= 65535
+
+ONOS WebUI
+    * filter org.onosproject.reset to see the list of additional rules
+
+Shell script
+    $ startServer.sh: Start onos server
+    $ buildTopology.sh <pythonFile> <topologyName>: Build custom network topology
+    $ addFlowRule.sh <DeviceID> <JSON>
+    $ getFlowInfo.sh <DeviceID>
+    $ deleteFlowRule.sh <DeviceID> <FlowID>
+
+of:0000000000000002
+openflow_v5.type == OFPT_FLOW_MOD && openflow_v5.flowmod.command == 0
