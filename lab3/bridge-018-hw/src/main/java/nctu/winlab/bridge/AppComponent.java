@@ -50,9 +50,8 @@ import org.onosproject.net.flowobjective.ForwardingObjective;
 import static org.onlab.util.Tools.get;
 import java.util.HashMap;
 import java.util.Map;
-/**
- * Skeletal ONOS application component.
- */
+
+/* Your APP class */
 @Component(immediate = true, service = { AppComponent.class }, property = {
         "someProperty=Some Default String Value",
 })
@@ -81,22 +80,25 @@ public class AppComponent {
     @Reference(cardinality = ReferenceCardinality.MANDATORY)
     protected FlowObjectiveService flowObjectiveService;
 
+    /* This one is important, you have design the method to process packet-in packets */
     private ReactivePacketProcessor processor = new ReactivePacketProcessor();
 
     private ApplicationId appId;
 
     Map<DeviceId, Map<MacAddress, PortNumber>> macTable = new HashMap<>();
 
+    /* When you click activate APP, the function is called */
     @Activate
     protected void activate() {
         cfgService.registerProperties(getClass());
 
         appId = coreService.registerApplication("nctu.winlab.bridge");
-        packetService.addProcessor(processor, PacketProcessor.director(2));
+        packetService.addProcessor(processor, PacketProcessor.director(2)); // add processor to pacetService
         requestIntercepts();
         log.info("Started");
     }
 
+    /* When you click dectivate APP, the function is called */
     @Deactivate
     protected void deactivate() {
         cfgService.unregisterProperties(getClass(), false);
